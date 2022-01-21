@@ -9,6 +9,7 @@ How to Use
 ==========
 
 ::
+
   # Manually download the AWESOME shflags file.
   wget https://raw.githubusercontent.com/kward/shflags/master/shflags
 
@@ -36,6 +37,7 @@ Update Program to Device
 ------------------------
 
 ::
+
   export RPI_ADDR="account@your_rpi_address"
   rsync -av * ${RPI_ADDR}:/root/teslacam/ ; \
   ssh ${RPI_ADDR} rm /root/teslacam/setup_system.sh \
@@ -46,6 +48,7 @@ Test Context
 ------------
 
 ::
+
   echo "AWAY" > NEW_STATE
   echo "HOME" > NEW_STATE
 
@@ -58,6 +61,7 @@ the videos as well (so that you don't need to press on the Tesla screen). This h
 delay due to the technical reason.
 
 ::
+
   echo "0" > FAKE_BUTTON; sleep 0.2; \
   echo "1" > FAKE_BUTTON; sleep 0.2; \
   echo "0" > FAKE_BUTTON; sleep 0.2;
