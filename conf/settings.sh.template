@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+#
+# This file contains the user's settings. Modified by change_settings.sh.
+#
+set -e
+
+# The USB drive drive size.
+USB_DRIVE_SIZE_GB=16
+USB_DRIVE_SIZE_MB=$(($USB_DRIVE_SIZE_GB * 1024))
+
+# WLAN
+WLAN0_SSID=''
+WLAN0_PASSWORD=''
+WLAN0_IPV4_ADDR='192.168.87.230/24'
+WLAN0_IPV4_GW='192.168.87.1'
+WLAN0_IPV4_DNS='8.8.8.8'
+
+# Ethernet
+ETH0_IPV4_ADDR='192.168.88.131/24'
+ETH0_IPV4_GW='192.168.88.1'
+ETH0_IPV4_DNS='8.8.8.8'
+
+# Timezone
+TIMEZONE=''
+
+# The ID to store vedio on the restful server 
+SCP_ID='UNSET'
+SCP_ROOT='teslacam@your_server:/path/to/root/'
