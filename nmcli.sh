@@ -95,10 +95,12 @@ nmcli_wifi_conn() {
   local ifname="$1"
   local address="$2"
   local gateway="$3"
+  local ssid="$4"
+  local password="$5"
 
   if [ -z "$address" ]; then
-    nmcli_wifi_dhcp "${ifname}"
+    nmcli_wifi_dhcp "${ifname}" "$ssid" "$password"
   else
-    nmcli_wifi_static "${ifname}" "$address" "$gateway"
+    nmcli_wifi_static "${ifname}" "$address" "$gateway" "$ssid" "$password"
   fi
 }
