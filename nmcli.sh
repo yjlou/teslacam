@@ -49,6 +49,18 @@ nmcli_ethernet_static() {
   $NMCLI con up "$ifname"
 }
 
+nmcli_ethernet_conn() {
+  local ifname="$1"
+  local address="$2"
+  local gateway="$3"
+
+  if [ -z "$address" ]; then
+    nmcli_ethernet_dhcp "${ifname}"
+  else
+    nmcli_ethernet_static "${ifname}" "$address" "$gateway"
+  fi
+}
+
 nmcli_wifi_dhcp() {
   local ifname="$1"
   local ssid="$2"
@@ -77,4 +89,16 @@ nmcli_wifi_static() {
   $NMCLI con modify "$ssid" ipv4.method manual
   $NMCLI con modify "$ssid" ipv4.dns "8.8.8.8"
   $NMCLI con up "$ssid"
+}
+
+nmcli_wifi_conn() {
+  local ifname="$1"
+  local address="$2"
+  local gateway="$3"
+
+  if [ -z "$address" ]; then
+    nmcli_wifi_dhcp "${ifname}"
+  else
+    nmcli_wifi_static "${ifname}" "$address" "$gateway"
+  fi
 }

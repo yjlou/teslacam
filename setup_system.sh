@@ -21,8 +21,8 @@ prepare_packages "tmux -V" "tmux"
 # Configure the network interfaces (this must be the last one since nmcli can change the network
 # settings and fail to connect network again.
 nmcli_setup
-nmcli_ethernet_static eth0 "$ETH0_IPV4_ADDR" "$ETH0_IPV4_GW"
-nmcli_wifi_static wlan0 "$WLAN0_IPV4_ADDR" "$WLAN0_IPV4_GW" "$WLAN0_SSID" "$WLAN0_PASSWORD"
+nmcli_ethernet_conn eth0 "$ETH0_IPV4_ADDR" "$ETH0_IPV4_GW"
+nmcli_wifi_conn wlan0 "$WLAN0_IPV4_ADDR" "$WLAN0_IPV4_GW" "$WLAN0_SSID" "$WLAN0_PASSWORD"
 
 # Enable ssh
 sudo systemctl enable ssh
